@@ -1,0 +1,21 @@
+{
+  "name": "app",
+  "version": "1.0.50",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "bun run --watch src/index.ts",
+    "prisma:generate": "bunx prisma generate --schema=./db/prisma/schema.prisma",
+    "migrateDb": "bunx prisma migrate dev --schema=./db/prisma/schema.prisma"
+  },
+  "dependencies": {
+    "elysia": "latest"
+  },
+  "devDependencies": {
+    "@prisma/client": "^6.8.2",
+    "@types/bun": "^1.2.15",
+    "bun-types": "latest",
+    "prisma": "^6.8.2",
+    "typescript": "^5.8.3"
+  },
+  "module": "src/index.js"
+}

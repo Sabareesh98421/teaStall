@@ -1,0 +1,119 @@
+# .gitignore
+.env
+**/node_modules/*
+**/db-dist/*# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+bun.lockb
+# Global ignores (applies to all sub-projects and root)
+**/node_modules/
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+*.env
+**/dist/
+**/build/
+**/out/
+**/coverage/
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+tmp/
+temp/
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Project Specific Ignores (relative to the monorepo root)
+teaSpot-FE/.angular/
+teaSpot-FE/dist/
+teaSpot-BE/dist/
+
+# Prisma Specific (for your backend app's exact structure)
+teaSpot-BE/db/.env
+teaSpot-BE/db/prisma/dev.db
+teaSpot-BE/db/src/generated/
+# Bun
+bun.lockb
+
+# Environment files
+.env
+*.env
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
+
+# Angular
+teaSpot-FE/.angular/
+teaSpot-FE/dist/
+teaSpot-FE/.vscode/
+
+# Backend
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+bun.lockb
+
+# Environment files
+.env
+*.env
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
+
+# Angular
+teaSpot-FE/.angular/
+teaSpot-FE/dist/
+teaSpot-FE/.vscode/
+
+# Backend
+teaSpot-BE/dist/
+teaSpot-BE/.vscode/
+teaSpot-BE/db/.env
+teaSpot-BE/db/prisma/dev.db
+
+# Prisma generated client (custom output)
+teaSpot-BE/db/src/generated/
+
+# Misc
+coverage/
+dist/
+tmp/
+temp/
+teaSpot-BE/dist/
+teaSpot-BE/.vscode/
+teaSpot-BE/db/.env
+teaSpot-BE/db/prisma/dev.db
+teaSpot-BE/db/prisma/migrations/*.toml
+# Misc
+coverage/
+dist/
+tmp/
+temp/

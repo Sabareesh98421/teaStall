@@ -1,0 +1,12 @@
+{
+    "name": "teaSpot",
+    "version": "1.0.0",
+    "scripts": {
+        "fe": "npm --prefix teaSpot-FE start",
+        "be": "bun run --cwd teaSpot-BE dev",
+        "app": "concurrently -n FE,BE -c cyan,green \"npm run fe\" \"npm run be\""
+    },
+    "devDependencies": {
+        "concurrently": "^9.1.2"
+    }
+}
