@@ -35,14 +35,14 @@ Thumbs.db
 *.sublime-workspace
 
 # Project Specific Ignores (relative to the monorepo root)
-teaSpot-FE/.angular/
-teaSpot-FE/dist/
-teaSpot-BE/dist/
+Fe/.angular/
+Fe/dist/
+Be/dist/
 
 # Prisma Specific (for your backend app's exact structure)
-teaSpot-BE/db/.env
-teaSpot-BE/db/prisma/dev.db
-teaSpot-BE/db/src/generated/
+Be/db/.env
+Be/db/prisma/dev.db
+Be/db/src/generated/
 # Bun
 bun.lockb
 
@@ -62,9 +62,9 @@ Thumbs.db
 .vscode/
 
 # Angular
-teaSpot-FE/.angular/
-teaSpot-FE/dist/
-teaSpot-FE/.vscode/
+Fe/.angular/
+Fe/dist/
+Fe/.vscode/
 
 # Backend
 
@@ -89,29 +89,29 @@ Thumbs.db
 .vscode/
 
 # Angular
-teaSpot-FE/.angular/
-teaSpot-FE/dist/
-teaSpot-FE/.vscode/
+Fe/.angular/
+Fe/dist/
+Fe/.vscode/
 
 # Backend
-teaSpot-BE/dist/
-teaSpot-BE/.vscode/
-teaSpot-BE/db/.env
-teaSpot-BE/db/prisma/dev.db
+Be/dist/
+Be/.vscode/
+Be/db/.env
+Be/db/prisma/dev.db
 
 # Prisma generated client (custom output)
-teaSpot-BE/db/src/generated/
+Be/db/src/generated/
 
 # Misc
 coverage/
 dist/
 tmp/
 temp/
-teaSpot-BE/dist/
-teaSpot-BE/.vscode/
-teaSpot-BE/db/.env
-teaSpot-BE/db/prisma/dev.db
-teaSpot-BE/db/prisma/migrations/*.toml
+Be/dist/
+Be/.vscode/
+Be/db/.env
+Be/db/prisma/dev.db
+Be/db/prisma/migrations/*.toml
 # Misc
 coverage/
 dist/
