@@ -12,9 +12,8 @@ bun.lockb
 .env
 .env.local
 .env.*.local
-.env.development
-.env.test
-.env.production
+.env.dev
+.env.prod
 *.env
 **/dist/
 **/build/
