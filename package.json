@@ -5,14 +5,16 @@
         "fe": "npm --prefix Fe start",
         "be": "bun run --cwd Be dev",
         "app": "concurrently -n FE,BE,DOCKER -c cyan,green,blue \"npm run fe\" \"npm run be\" \" startMysql \" ",
-        "dockerCompose" :"docker compose up ",
-        "startMysql" : "docker compose -f docker-compose.dev.yaml up",
-        "stopMysql":"docker compose -f docker-compose.dev.yaml down",
+        "dockerCompose": "docker compose up ",
+        "startMysql": "docker compose -f docker-compose.dev.yaml up",
+        "stopMysql": "docker compose -f docker-compose.dev.yaml down",
         "start-prod": "docker compose -f docker-compose.prod.yaml up",
         "stop-dev": "docker compose -f docker-compose.dev.yaml down"
-        
     },
     "devDependencies": {
         "concurrently": "^9.1.2"
+    },
+    "dependencies": {
+        "openai": "^5.1.1"
     }
 }
