@@ -1,2 +1,2 @@
 // whisper.ts
-import Ai from "./aiConfig";
+import Ai from "@Ai/aiConfig";
