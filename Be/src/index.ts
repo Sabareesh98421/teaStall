@@ -1,4 +1,5 @@
 import { Elysia } from "elysia";
+import { cors } from '@elysiajs/cors'
 import { PrismaClient } from "@prismaClient"
 const pc = new PrismaClient();
 
@@ -13,8 +14,31 @@ async function prismaSchema() {
 }
 
 console.log(prismaSchema())
-const app = new Elysia().get("/", () => "Hello Elysia").listen(10108);
+const app = new Elysia()
+  .use(
+    cors(
+      {
+        origin: "*",
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        allowedHeaders: ["Content-Type", "Authorization"],
+        exposeHeaders: ["Content-Length", "X-Total-Count"],
+        credentials: true,
+        maxAge: 3600,
+      }
+    ));
 
-console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
-);
+app.get("/", () => {
+  return { welcome: "Hello Elysia" }
+
+})
+app.get("/product", async () => { 
+  const products = await pc.tea.findMany();
+  return products;
+});
+app.listen(10108, (server) => {
+  console.log(
+    `🦊 Elysia is running at ${server.hostname}:${server.port}`
+  );
+
+});
+
