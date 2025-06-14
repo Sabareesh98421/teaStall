@@ -13,13 +13,13 @@ interface RequestOptions {
   customHeaders?: HttpHeaders | { [header: string]: string | string[] };
   queryParams?: HttpParams | { [param: string]: string | string[] };
   observe?: 'body' | 'response';
-  withCredentials?: boolean;
+  withCredentials?: boolean  ;
   reportProgress?: boolean;
 }
 type CustomHTTPResponse<T> = Observable<T> | Observable<HttpResponse<T>> | Observable<HttpEvent<T>>;
 @Injectable({
   providedIn: 'root',
-  
+
 })
 export class HttpHandlerService {
   private http = inject(HttpClient);

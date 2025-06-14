@@ -1,6 +1,6 @@
-// import { HttpResponse } from '@angular/common/http';
-import { inject, Injectable, NgZone } from '@angular/core';
-import { HttpHandlerService } from '../core/http-handler.service';
+// record-audio.service.ts
+import { computed, inject, Injectable, NgZone, signal, Signal } from '@angular/core';
+import { HttpHandlerService } from '@core/http-handler.service';
 interface audioTranscriptToBackend {
   body: string,
   audio: Blob
@@ -19,9 +19,11 @@ declare global {
 
 export class RecordAudioService {
 
+
   // NgZone instance named ZoneOut because browser APIs cause Angular to 'zone out'.
   // We manually bring control back inside Angular zone using ZoneOut.run().
   private ZoneOut = inject(NgZone);
+
 
   private stream: MediaStream | null = null;
 
@@ -45,11 +47,18 @@ export class RecordAudioService {
   private recognition: any = null
 
   // private http = inject(HttpHandlerService);
-
+  // Using signal to track the state of transcript received but we use signal to the component to display the transcript
+  transcriptSignal = signal<string>("");
+  transcriptComputed = computed(() => this.transcriptSignal())
   private isTranscriptReceived: boolean = false;
 
   constructor() { }
-
+  private updateTranscript(transcript: string) {
+    this.transcriptSignal.set(`${this.transcriptSignal()} ${transcript}`);
+  }
+  private updateTranscriptSignalComputed(transcript: string) {
+    this.transcriptSignal.set(`${this.transcriptSignal()} ${transcript}`);
+  }
   async startRecording() {
 
     try {
@@ -255,7 +264,8 @@ export class RecordAudioService {
 
   private AiStateHandler(transcript: string) {
     alert("AiStateHandler called with transcript: " + transcript);
-
+    this.updateTranscript(transcript);
+    this.updateTranscriptSignalComputed(transcript);
     console.log("Checking isRestWord:", this.isRestWord(transcript));
     console.log("Checking isAiActive:", this.isAiActive);
     console.log("Checking isWakeWord:", this.isWakeWord(transcript));

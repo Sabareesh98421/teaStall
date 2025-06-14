@@ -20,11 +20,13 @@
     "target": "ES2022",
     "module": "ES2022",
     "lib": ["ES2022", "dom"],
+    "baseUrl":".",
     "paths": {
       "@env/*": ["./src/environments/*"],
       "@core/*": ["./src/core/*"],
-      "@service/*": ["./src/services/*"],
-      "@sharedUtils/*": ["../shared/util/*"]
+      "@service/*": ["./src/service/*"],
+      "@recordAudio": ["./src/service/record-audio.service"],
+      "@sharedUtils/*": ["../shared/utils/*"]
     }
   },
   "angularCompilerOptions": {

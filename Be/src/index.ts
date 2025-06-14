@@ -4,21 +4,28 @@ import { PrismaClient } from "@prismaClient"
 const pc = new PrismaClient();
 
 async function prismaSchema() {
-  let createData = await pc.tea.create({
-    data: {
-      name: "tea",
-      price: 20
-    }
-  })
-  return `Created tea with ID: ${createData.id}`;
+  try {
+
+    let createData = await pc.tea.create({
+      data: {
+        name: "tea",
+        price: 20
+      }
+    })
+    return `Created tea with ID: ${createData.id}`;
+  }
+  catch (error) {
+    console.error("Error creating tea:", error);
+    return "Error creating tea";
+  }
 }
 
-console.log(prismaSchema())
+
 const app = new Elysia()
   .use(
     cors(
       {
-        origin: "*",
+        origin: "http://localhost:4200",
         methods: ["GET", "POST", "PUT", "DELETE"],
         allowedHeaders: ["Content-Type", "Authorization"],
         exposeHeaders: ["Content-Length", "X-Total-Count"],
@@ -28,10 +35,15 @@ const app = new Elysia()
     ));
 
 app.get("/", () => {
+  prismaSchema().then((result) => {
+    console.log(result);
+  }).catch((error) => {
+    console.error("Error in prismaSchema:", error);
+  });
   return { welcome: "Hello Elysia" }
 
 })
-app.get("/product", async () => { 
+app.get("/product", async () => {
   const products = await pc.tea.findMany();
   return products;
 });
