@@ -1,12 +1,10 @@
 # docker-compose.dev.yaml
-version: "3.9"
-
 services:
     mysql:
         image: "mysql:latest"
         container_name: "mysql-dev"
         ports:
-            - 3306:3306
+            - "${MYSQL_PORT:-3306}:3306"
         env_file:
             - ./Be/db/.env
         volumes:
